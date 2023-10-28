@@ -1,7 +1,7 @@
 img.carImage{
     height: 120px;
     max-width: initial;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 .title{
     font-weight: bold;
@@ -11,4 +11,7 @@ img.carImage{
     padding: 8px;
     background-color: #fff;
     border-radius: 0.25rem;
+}
+.tile{
+    cursor: pointer;
 }
