@@ -40,4 +40,8 @@ public with sharing class CarController {
         String query = 'SELECT Id, Name, MSRP__c, Description__c, Category__c, Picture_URL__c FROM Car__c ' + whereClause + ' WITH SECURITY_ENFORCED ORDER BY Name';
         return Database.query(query); // that's how we run the dynamic query
     }
+    @AuraEnabled(Cacheable=true)
+    public static Car__c[] getSimilarCars(Id carId, String[] makeType){
+        return [SELECT Id, Name, MSRP__c, Description__c, Category__c, Picture_URL__c, Make__c FROM Car__c WHERE Make__c IN :makeType AND Id != :carId];
+    }
 }
